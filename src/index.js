@@ -11,7 +11,7 @@ const app = express();
 
 const { Socket_IO } = require("./Services/WebSocket.js");
 
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 3000;
 
 const server = app.listen(PORT, () =>
   console.log(`Server is listening on port ${PORT}`)
