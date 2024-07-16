@@ -20,11 +20,11 @@ const server = app.listen(PORT, () =>
 app.use(bodyParser.json({ limit: "50mb" }));
 app.use(
   cors({
-    origin: function (origin, callback) {
+    origin: function(origin, callback) {
       if (!origin) return callback(null, true);
       callback(null, true);
     },
-    credentials: true,
+    credentials: true
   })
 );
 
