@@ -18,8 +18,6 @@ pipeline {
         stage('Run Docker Container') {
             steps {
                 script {
-                    sh "docker stop ${env.DOCKER_CONTAINER_NAME}"
-                    sh "docker rm ${env.DOCKER_CONTAINER_NAME}"
                     sh "docker run -p 3000:3000 --name ${env.DOCKER_CONTAINER_NAME} ${env.DOCKER_IMAGE}"
                 }
             }
