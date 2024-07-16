@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "./static/css/main.c1405907.css",
+    "main.js": "./static/js/main.21935c52.js",
+    "static/js/453.8ab44547.chunk.js": "./static/js/453.8ab44547.chunk.js",
+    "static/media/HowToUse.mp4": "./static/media/HowToUse.b0b17ff4374fcbc69b18.mp4",
+    "static/media/CrypticRoom.svg": "./static/media/CrypticRoom.a211daac0377d3077ad2.svg",
+    "static/media/HowToUseMobile.mp4": "./static/media/HowToUseMobile.1f7d5f113038e2afa16f.mp4",
+    "static/media/Tutorial.png": "./static/media/Tutorial.348c05eb8a382b9d5662.png",
+    "static/media/mobile-thumb.png": "./static/media/mobile-thumb.a48359234900ea6bdb9d.png",
+    "static/media/logo.png": "./static/media/logo.e532f523f58ec06cf6d7.png",
+    "service-worker.js": "./service-worker.js",
+    "static/media/NOTFOUND.svg": "./static/media/NOTFOUND.e43807d17ff6316786c2a663c5b7f0ba.svg",
+    "static/media/footerLogo.svg": "./static/media/footerLogo.d55b20ee00d3098c758a986f4f42849a.svg",
+    "index.html": "./index.html",
+    "main.c1405907.css.map": "./static/css/main.c1405907.css.map",
+    "main.21935c52.js.map": "./static/js/main.21935c52.js.map",
+    "453.8ab44547.chunk.js.map": "./static/js/453.8ab44547.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c1405907.css",
+    "static/js/main.21935c52.js"
+  ]
+}
