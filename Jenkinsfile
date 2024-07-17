@@ -17,11 +17,34 @@ pipeline {
                 sh "docker build -t ${env.DOCKER_IMAGE} ."
             }
         }
+        stage('Check and Remove Existing Container') {
+            steps {
+                script {
+                    sh '''
+                    #!/bin/bash
 
+                    # Name of the Docker container
+                    CONTAINER_NAME="crypticroom-testjenkins"
+
+                    # Check if the container exists
+                    if [ $(docker ps -a -q -f name=$CONTAINER_NAME) ]; then
+                        echo "Container $CONTAINER_NAME exists. Removing it..."
+                        # Stop the container if it is running
+                        if [ $(docker ps -q -f name=$CONTAINER_NAME) ]; then
+                            docker stop $CONTAINER_NAME
+                        fi
+                        # Remove the container
+                        docker rm $CONTAINER_NAME
+                        echo "Container $CONTAINER_NAME removed."
+                    else
+                        echo "Container $CONTAINER_NAME does not exist."
+                    fi
+                    '''
+                }
+            }
+        }
         stage('Run Docker Container') {
             steps {
-                sh 'chmod +x ./update_container.sh'
-                sh "./update_container.sh"
                 sh "docker run -d -p 3000:3000 --name ${env.DOCKER_CONTAINER_NAME} ${env.DOCKER_IMAGE}"
             }
         }
