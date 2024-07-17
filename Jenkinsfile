@@ -12,6 +12,20 @@ pipeline {
                 checkout scm
             }
         }
+        stage('Create .env File') {
+            steps {
+                script {
+                    def envContent = """
+                    NODE_ENV=production
+                    PORT=3030
+                    DB_HOST=your-db-host
+                    DB_USER=your-db-user
+                    DB_PASS=your-db-pass
+                    """
+                    writeFile file: '.env', text: envContent
+                }
+            }
+        }
         stage('Build Docker Image') {
             steps {
                 sh "docker build -t ${env.DOCKER_IMAGE} ."
