@@ -2,8 +2,8 @@ pipeline {
     agent any
 
     environment {
-        DOCKER_IMAGE = "crypticroom-testjenkins"
-        DOCKER_CONTAINER_NAME = "crypticroom-testjenkins"
+        DOCKER_IMAGE = "crypticroom-v1"
+        DOCKER_CONTAINER_NAME = "crypticroom-v1"
     }
 
     stages {
@@ -16,7 +16,7 @@ pipeline {
             steps {
                 script {
                     def envContent = '''
-                    PORT=3000
+                    PORT=3030
                     MONGO_URI=mongodb+srv://CrypticMDB:m1eKw3QeDJszg5P4@cluster0.qojgmyq.mongodb.net/CrypticTables
                     COST_fACTOR=10
                     AI_API_KEY=AIzaSyB9c4ADuL0ndLeU06GWghzCxRD56XHjEnE
@@ -38,7 +38,7 @@ pipeline {
                     #!/bin/bash
 
                     # Name of the Docker container
-                    CONTAINER_NAME="crypticroom-testjenkins"
+                    CONTAINER_NAME="crypticroom-v1"
 
                     # Check if the container exists
                     if [ $(docker ps -a -q -f name=$CONTAINER_NAME) ]; then
@@ -59,7 +59,7 @@ pipeline {
         }
         stage('Run Docker Container') {
             steps {
-                sh "docker run -d -p 3000:3000 --name ${env.DOCKER_CONTAINER_NAME} ${env.DOCKER_IMAGE}"
+                sh "docker run -d -p 3030:3030 --name ${env.DOCKER_CONTAINER_NAME} ${env.DOCKER_IMAGE}"
             }
         }
     }
