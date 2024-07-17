@@ -7,19 +7,20 @@ pipeline {
     }
 
     stages {
+        stage("checkout"){
+            steps{
+                checkout scm
+            }
+        }
         stage('Build Docker Image') {
             steps {
-                script {
-                    docker.build("${env.DOCKER_IMAGE}")
-                }
+                sh "docker build -t ${env.DOCKER_IMAGE} ."
             }
         }
 
         stage('Run Docker Container') {
             steps {
-                script {
-                    sh "docker run -p 3000:3000 --name ${env.DOCKER_CONTAINER_NAME} ${env.DOCKER_IMAGE}"
-                }
+                sh "docker run -p 3000:3000 --name ${env.DOCKER_CONTAINER_NAME} ${env.DOCKER_IMAGE}"
             }
         }
     }
