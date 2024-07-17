@@ -2,8 +2,8 @@ pipeline {
     agent any
 
     environment {
-        DOCKER_IMAGE = "crypticroom-testJenkins"
-        DOCKER_CONTAINER_NAME = "crypticroom-testJenkins"
+        DOCKER_IMAGE = "crypticroom-testjenkins"
+        DOCKER_CONTAINER_NAME = "crypticroom-testjenkins"
     }
 
     stages {
