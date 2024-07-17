@@ -14,13 +14,13 @@ pipeline {
         }
         stage('Build Docker Image') {
             steps {
-                sh "sudo docker build -t ${env.DOCKER_IMAGE} ."
+                sh "docker build -t ${env.DOCKER_IMAGE} ."
             }
         }
 
         stage('Run Docker Container') {
             steps {
-                sh "sudo docker run -p 3000:3000 --name ${env.DOCKER_CONTAINER_NAME} ${env.DOCKER_IMAGE}"
+                sh "docker run -p 3000:3000 --name ${env.DOCKER_CONTAINER_NAME} ${env.DOCKER_IMAGE}"
             }
         }
     }
