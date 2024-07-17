@@ -15,13 +15,13 @@ pipeline {
         stage('Create .env File') {
             steps {
                 script {
-                    def envContent = """
-                    NODE_ENV=production
-                    PORT=3030
-                    DB_HOST=your-db-host
-                    DB_USER=your-db-user
-                    DB_PASS=your-db-pass
-                    """
+                    def envContent = '''
+                    PORT=3000
+                    MONGO_URI=mongodb+srv://CrypticMDB:m1eKw3QeDJszg5P4@cluster0.qojgmyq.mongodb.net/CrypticTables
+                    COST_fACTOR=10
+                    AI_API_KEY=AIzaSyB9c4ADuL0ndLeU06GWghzCxRD56XHjEnE
+                    SECRET_KEY=We$is_97.Pparazi756
+                    '''
                     writeFile file: '.env', text: envContent
                 }
             }
