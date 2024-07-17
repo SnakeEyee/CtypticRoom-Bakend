@@ -20,8 +20,12 @@ pipeline {
 
         stage('Run Docker Container') {
             steps {
-                sh "docker stop ${env.DOCKER_CONTAINER_NAME}"
-                sh "docker rm ${env.DOCKER_CONTAINER_NAME}"
+                sh """
+                if [\$(docker ps -q -f name=${env.DOCKER_CONTAINER_NAME})]; then
+                    docker stop ${env.DOCKER_CONTAINER_NAME}
+                    docker rm ${env.DOCKER_CONTAINER_NAME}
+                fi
+                """
                 sh "docker run -d -p 3000:3000 --name ${env.DOCKER_CONTAINER_NAME} ${env.DOCKER_IMAGE}"
             }
         }
